@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASSIGNMENT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #333;
+            --secondary-color: #f4f4f4;
+            --text-color: #fff;
+            --accent-color: #007bff;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        .dark-mode {
+            --primary-color: #f4f4f4;
+            --secondary-color: #394b58;
+            --text-color: #fff;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--accent-color);
+        }
+
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-color);
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+        }
+
+        .hero button {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .hero button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .content-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .section-one {
+            font-family: 'Georgia', serif;
+            border: 2px solid var(--accent-color);
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            border-radius: 8px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .section-one h2 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .section-one p {
+            font-size: 1.1em;
+            padding: 0 20px;
+        }
+
+        .section-two {
+            font-family: 'Verdana', sans-serif;
+            border: 1px dashed #ccc;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
+            margin: 20px;
+            padding: 30px;
+            border-radius: 4px;
+            background-color: var(--text-color);
+            color: var(--primary-color);
+        }
+
+        .section-two h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .section-two p {
+            font-size: 1em;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: var(--secondary-color);
+        }
+
+        .card {
+            background-color: var(--text-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .parallax {
+            background-image: url('https://images.unsplash.com/photo-1440616988364-499a19245a6a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            min-height: 400px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-color);
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .parallax-content {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .parallax-content h2 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .parallax-content p {
+            font-size: 1.2em;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .social-icons a {
+            color: var(--text-color);
+            font-size: 1.5em;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        #darkModeToggle {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 1em;
+            outline: none;
+        }
+
+        #darkModeToggle i {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <button id="darkModeToggle">Dark Mode <i class="fas fa-moon"></i></button>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to Our Amazing Website</h1>
+            <p>Discover the possibilities with our innovative solutions.</p>
+            <button>Learn More</button>
+        </div>
+    </section>
+
+    <section class="content-section section-one" id="about">
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+
+    <section class="card-container" id="services">
+        <div class="card">
+            <h3>Service One</h3>
+            <p>Providing top-notch solutions tailored to your needs.</p>
+            <button>Details</button>
+        </div>
+        <div class="card">
+            <h3>Service Two</h3>
+            <p>Innovative approaches to solve complex challenges.</p>
+            <button>Explore</button>
+        </div>
+        <div class="card">
+            <h3>Service Three</h3>
+            <p>Dedicated support and reliable performance you can trust.</p>
+            <button>View</button>
+        </div>
+    </section>
+
+    <section class="content-section section-two">
+        <h2>Our Mission</h2>
+        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+    </section>
+
+    <section class="parallax">
+        <div class="parallax-content">
+            <h2>Experience the Difference</h2>
+            <p>Unlock new possibilities with our cutting-edge technology and expert team.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2025 My Awesome Webpage</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const body = document.body;
+
+            darkModeToggle.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                const icon = darkModeToggle.querySelector('i');
+                if (body.classList.contains('dark-mode')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
